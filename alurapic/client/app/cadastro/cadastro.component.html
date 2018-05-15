@@ -1,17 +1,16 @@
 <div class="container">
     <h1 class="text-center">Cadastro de Fotos</h1>
-    <form #meuForm="ngForm" class="row" (submit)="cadastrar($event)">
+    <form class="row" (submit)="cadastrar($event)">
         <div class="col-md-6">
             <div class="form-group">
                 <label>Título</label>
                 <input 
                     required
-                    #titulo="ngModel"
                     name="titulo" 
                     [(ngModel)]="foto.titulo" 
                     class="form-control" 
                     autocomplete="off">
-                <span *ngIf="titulo.invalid" class="form-control alert-danger">
+                <span *ngIf="" class="form-control alert-danger">
                     Título obrigatório
                 </span>     
             </div>
@@ -19,12 +18,11 @@
                 <label>URL</label>
                 <input 
                     required
-                    #url="ngModel"
                     name="url" 
                     [(ngModel)]="foto.url" 
                     class="form-control" 
                     autocomplete="off">
-                <span *ngIf="url.invalid" class="form-control alert-danger">
+                <span *ngIf="" class="form-control alert-danger">
                     URL obrigatória
                 </span> 
             </div>
@@ -32,17 +30,16 @@
                 <label>Descrição</label>
                 <textarea 
                     required
-                    #descricao="ngModel"
                     name="descricao" 
                     [(ngModel)]="foto.descricao" 
                     class="form-control" 
                     autocomplete="off">
                 </textarea>
-                <span *ngIf="descricao.invalid" class="form-control alert-danger">
+                <span *ngIf="" class="form-control alert-danger">
                     Descrição obrigatória
                 </span> 
             </div>
-            <button type="submit" class="btn btn-primary" [disabled]="meuForm.form.invalid">
+            <button type="submit" class="btn btn-primary" [disabled]="">
                 Salvar
             </button>
                 <a [routerLink]="['']" class="btn btn-primary">Voltar</a>
