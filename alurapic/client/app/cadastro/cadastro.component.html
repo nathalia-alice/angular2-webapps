@@ -1,1 +1,26 @@
-<h1 class="text-center">Cadastro de Fotos</h1>
+<div class="container">
+    <h1 class="text-center">Cadastro de Fotos</h1>
+    <form class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Título</label>
+                <input class="form-control"  autocomplete="off">    
+            </div>
+            <div class="form-group">
+                <label>URL</label>
+                <input class="form-control"  autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label>Descrição</label>
+                <textarea class="form-control"  autocomplete="off">
+                </textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Salvar
+            </button>
+                <a [routerLink]="['']" class="btn btn-primary">Voltar</a>
+            <hr>
+        </div>
+    </form>
+</div>
