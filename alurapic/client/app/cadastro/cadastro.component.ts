@@ -48,15 +48,19 @@ export class CadastroComponent {
     }
 
     cadastrar(event) {
+
         event.preventDefault();
         console.log(this.foto);
-
-        this.service.cadastra(this.foto)
-            .subscribe(() => {
+    
+        this.service
+            .cadastra(this.foto)
+            .subscribe(res => {
+                this.mensagem = res.mensagem;
                 this.foto = new FotoComponent();
-                this.router.navigate(['']);
+                if(!res.inclusao) this.router.navigate(['']);
             }, erro => {
                 console.log(erro);
+                this.mensagem = 'Não foi possível savar a foto';
             });
     }
 }
