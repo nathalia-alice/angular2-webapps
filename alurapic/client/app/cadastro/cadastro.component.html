@@ -1,48 +1,42 @@
 <div class="container">
     <h1 class="text-center">Cadastro de Fotos</h1>
-    <form class="row" (submit)="cadastrar($event)">
+    <form [formGroup]="meuForm" class="row" (submit)="cadastrar($event)">
         <div class="col-md-6">
             <div class="form-group">
                 <label>Título</label>
                 <input 
-                    required
                     name="titulo" 
                     [(ngModel)]="foto.titulo" 
-                    class="form-control" 
-                    autocomplete="off">
-                <span *ngIf="" class="form-control alert-danger">
+                    formControlName="titulo" 
+                    class="form-control"  autocomplete="off">
+                <span *ngIf="meuForm.controls.titulo.invalid" class="form-control alert-danger">
                     Título obrigatório
                 </span>     
             </div>
             <div class="form-group">
                 <label>URL</label>
                 <input 
-                    required
-                    name="url" 
-                    [(ngModel)]="foto.url" 
-                    class="form-control" 
-                    autocomplete="off">
-                <span *ngIf="" class="form-control alert-danger">
+                    name="url"  
+                    [(ngModel)]="foto.url"  
+                    formControlName="url" 
+                    class="form-control"  autocomplete="off">
+                <span *ngIf="meuForm.controls.url.invalid" class="form-control alert-danger">
                     URL obrigatória
                 </span> 
             </div>
             <div class="form-group">
                 <label>Descrição</label>
                 <textarea 
-                    required
-                    name="descricao" 
-                    [(ngModel)]="foto.descricao" 
-                    class="form-control" 
-                    autocomplete="off">
+                    name="descricao"  
+                    [(ngModel)]="foto.descricao"  
+                    formControlName="descricao" 
+                    class="form-control">
                 </textarea>
-                <span *ngIf="" class="form-control alert-danger">
-                    Descrição obrigatória
-                </span> 
             </div>
-            <button type="submit" class="btn btn-primary" [disabled]="">
+            <button type="submit" class="btn btn-primary" [disabled]="meuForm.invalid">
                 Salvar
             </button>
-                <a [routerLink]="['']" class="btn btn-primary">Voltar</a>
+            <a [routerLink]="['']" class="btn btn-primary">Voltar</a>
             <hr>
         </div>
     </form>
